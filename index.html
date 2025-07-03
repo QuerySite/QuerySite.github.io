@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pako/2.1.0/pako.min.js"></script>
+  </head>
+  <body>
+    <p>Still in development</p>
+    <h1>Like Hosting, but better!</h1>
+    <textarea id="HTML" placeholder="Type your html content here">HTML Content</textarea>
+    <p>TinySite works on compressed query strings, so you don't have to spend a single penny hosting your site!</p>
+    <p id="URL"></p>
+    <script>
+        const textarea = document.getElementById('HTML');
+
+        textarea.addEventListener('input', () => {
+          const currentValue = textarea.value;
+          console.log(currentValue);  // Do whatever you want with the current value
+        });
+            
+      // 1. Compress the input using pako.gzip, returns Uint8Array
+      const compressed = pako.gzip(input);
+      
+      // 2. Convert Uint8Array to binary string for base64 encoding
+      function uint8ToString(u8Arr) {
+        let str = "";
+        for (let i = 0; i < u8Arr.length; i++) {
+          str += String.fromCharCode(u8Arr[i]);
+        }
+        return str;
+      }
+      
+      const binaryString = uint8ToString(compressed);
+      
+      // 3. Base64 encode using btoa
+      const base64 = btoa(binaryString);
+      
+      document.getElementById("URL").innerHTML = base64;
+
+    </script>
+  </body>
+</html>
