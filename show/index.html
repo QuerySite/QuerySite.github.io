@@ -3,12 +3,40 @@
   <div id="container"></div>
   <body>
     <script>
-    base64 = window.location.search;
-    const base64url = base64.replace('-', /\+/g).replace('_', /\//g).replace('', /=+$/);
-    const compressed = Uint8Array.from(atob(base64url), c => c.charCodeAt(0));
-    const original = pako.ungzip(compressed, { to: 'string' });
+      // Parse query string to get the 'data' parameter
+      const params = new URLSearchParams(window.location.search);
+      const base64url = params.get('data');
 
-    document.getElelementById("container").innerHTML = original;
+      if (base64url) {
+        // Convert base64url to base64
+        function base64UrlToBase64(base64url) {
+          let base64 = base64url.replace(/-/g, '+').replace(/_/g, '/');
+          // Add padding '='
+          while (base64.length % 4 !== 0) {
+            base64 += '=';
+          }
+          return base64;
+        }
+
+        const base64 = base64UrlToBase64(base64url);
+
+        // Decode base64 to binary string
+        const binaryString = atob(base64);
+
+        // Convert binary string to Uint8Array
+        const compressed = new Uint8Array(binaryString.length);
+        for (let i = 0; i < binaryString.length; i++) {
+          compressed[i] = binaryString.charCodeAt(i);
+        }
+
+        // Decompress with pako
+        const original = pako.ungzip(compressed, { to: 'string' });
+
+        // Display result
+        document.getElementById("container").innerHTML = original;
+      } else {
+        document.getElementById("container").innerHTML = "No data found in URL.";
+      }
     </script>
   </body>
 </html>
