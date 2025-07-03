@@ -4,7 +4,8 @@
   <body>
     <script>
     base64 = window.location.search;
-    const compressed = Uint8Array.from(atob(base64), c => c.charCodeAt(0));
+    const base64url = base64.replace('-', /\+/g).replace('_', /\//g).replace('', /=+$/);
+    const compressed = Uint8Array.from(atob(base64url), c => c.charCodeAt(0));
     const original = pako.ungzip(compressed, { to: 'string' });
 
     document.getElelementById("container").innerHTML = original;
