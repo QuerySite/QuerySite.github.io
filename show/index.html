@@ -2,11 +2,12 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pako/2.1.0/pako.min.js"></script>
   <div id="container"></div>
   <body>
+    <script>
     base64 = window.location.search;
     const compressed = Uint8Array.from(atob(base64), c => c.charCodeAt(0));
     const original = pako.ungzip(compressed, { to: 'string' });
 
     document.getElelementById("container").innerHTML = original;
-
+    </script>
   </body>
 </html>
