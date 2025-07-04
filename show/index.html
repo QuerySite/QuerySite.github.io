@@ -1,6 +1,6 @@
 <html>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pako/2.1.0/pako.min.js"></script>
-  <div id="container"></div>
+  <iframe id="container"></iframe>
   <body>
     <script>
       // Parse query string to get the 'data' parameter
@@ -33,9 +33,9 @@
         const original = pako.ungzip(compressed, { to: 'string' });
 
         // Display result
-        document.getElementById("container").innerHTML = original;
+        document.getElementById("container").srcdoc = original;
       } else {
-        document.getElementById("container").innerHTML = "No data found in URL.";
+        document.getElementById("container").srcdoc = "No data found in URL.";
       }
     </script>
   </body>
