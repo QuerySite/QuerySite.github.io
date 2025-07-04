@@ -13,7 +13,7 @@
     <p>Send simple messages, create simple websites, and do pretty much anything else small with QuerySite! QuerySite converts HTML data into a query string so you can send messages through URLs! Essentially, QuerySite hosts very small websites for free!</p>
     <textarea id="HTML" placeholder="Type your html content here">HTML Content</textarea>
     <p>TinySite works on compressed query strings, so you don't have to spend a single penny hosting your site!</p>
-    <link id="URL"></link>
+    <a id="URL"></link>
     <script>
         const textarea = document.getElementById('HTML');
   const output = document.getElementById('URL');
@@ -43,6 +43,7 @@
 
     // Show output
     output.url = "https://QuerySite.github.io/show?data=" + base64url;
+    output.textContent = "https://QuerySite.github.io/show?data=" + base64url;
   });
 
     </script>
