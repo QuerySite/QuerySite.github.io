@@ -23,7 +23,16 @@
     <h1>Like Hosting, but better!</h1>
     <p>Send simple messages, create simple websites, and do pretty much anything else small with QuerySite! QuerySite converts HTML data into a query string so you can send messages through URLs! Essentially, QuerySite hosts very small websites for free!</p>
     <textarea rows=25 cols=100 id="HTML" placeholder="Type your html content here">HTML Content</textarea>
-    <a id="URL"></link>
+    <a id="URL"></a>
+    <br>
+    <div class="FAQ">
+      <h1>FAQ:</h1>
+      <h2>How does QuerySite host websites</h2>
+      <p>Technically, you are not getting web hosting, but instead, it generates permalinks for metadata by using query strings</p>
+      <h2>What is the file size limit?</h2>
+      <p>Technically nothing. I would reccomend the URL string doesn't exceed 2000 characters, but usually, there should be no HTML size limit!</p>
+      <p></p>
+    </div>
     <script>
         const textarea = document.getElementById('HTML');
   const output = document.getElementById('URL');
@@ -57,14 +66,5 @@
   });
 
     </script>
-
-    <div class="FAQ">
-      <h1>FAQ:</h1>
-      <h2>How does QuerySite host websites</h2>
-      <p>Technically, you are not getting web hosting, but instead, it generates permalinks for metadata by using query strings</p>
-      <h2>What is the file size limit?</h2>
-      <p>Technically nothing. I would reccomend the URL string doesn't exceed 2000 characters, but usually, there should be no HTML size limit!</p>
-      <p></p>
-    </div>
   </body>
 </html>
