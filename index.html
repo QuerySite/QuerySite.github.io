@@ -10,8 +10,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pako/2.1.0/pako.min.js"></script>
     <style>
       .FAQ {
-        background-color: grey;
+        background-color: ;
         width: 100%;
+        background: #1a1a2e;
+        color: #ffffff;
       }
       body {
         background-color: black;
@@ -49,6 +51,24 @@
         outline: none;
         font-size: 16px;
       }
+
+      .FAQ {
+        position: relative;
+        display: inline-block;
+        padding-left: 12px; /* space for the glow bar */
+      }
+
+      .FAQ::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 4px;
+        height: 100%;
+        background: linear-gradient(to bottom, #00ffff, #0055ff);
+        box-shadow: 0 0 10px #00ffff, 0 0 20px #0055ff;
+        border-radius: 2px;
+      }
       
     </style>
   </head>
@@ -56,7 +76,7 @@
     <h1>Like Hosting, but better!</h1>
     <p>Send simple messages, create simple websites, and do pretty much anything else small with QuerySite! QuerySite converts HTML data into a query string so you can send messages through URLs! Essentially, QuerySite hosts very small websites for free!</p>
     <div class="textb">
-    <textarea rows=25 cols=100 id="HTML" placeholder="Type your html content here">HTML Content</textarea>
+    <textarea rows=25 cols=100 id="HTML" placeholder="Type your html content here"></textarea>
     </div>
     <br>
     <a id="URL"></a>
