@@ -14,15 +14,24 @@
         width: 100%;
       }
       body {
-        background-color: lightblue;
+        background-color: black;
         font-family: Arial, sans-serif;
+        color: white;
+      }
+      .textb {
+        border-left-style: solid;
+        border-right-style: none;
+        border-top-style: none;
+        border-bottom-style: none;
+        border-color: blue;
+        background-color: linear-gradient(to-right, blue, indigo);
       }
     </style>
   </head>
   <body>
     <h1>Like Hosting, but better!</h1>
     <p>Send simple messages, create simple websites, and do pretty much anything else small with QuerySite! QuerySite converts HTML data into a query string so you can send messages through URLs! Essentially, QuerySite hosts very small websites for free!</p>
-    <textarea rows=25 cols=100 id="HTML" placeholder="Type your html content here">HTML Content</textarea>
+    <textarea class="textb" rows=25 cols=100 id="HTML" placeholder="Type your html content here">HTML Content</textarea>
     <br>
     <a id="URL"></a>
     <br>
